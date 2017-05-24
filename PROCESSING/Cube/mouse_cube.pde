@@ -1,3 +1,9 @@
+/*  RUNS IN THE PROCESSING IDE
+    WRITTEN IN PROCESSING 3.0.2
+    Marcin Danlowski - May 2017
+    PROCESSING REQUIRES JAVA
+*/
+
 float dx, dy, dz;
 PImage piesel; // create instance of PImage class
 
