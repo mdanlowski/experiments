@@ -4,3 +4,5 @@
 > Processing.org
 
 https://processing.org/download/
+
+\*name.pde file must be placed in \*name folder
