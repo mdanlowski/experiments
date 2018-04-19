@@ -1,92 +1,99 @@
 // Prototype project I :: Shooter game
-/* KEY CODES:
-  37 = LEFT_ARROW
-  38 = UP_ARROW
-  39 = RIGHT_ARROW
-  40 = DOWN_ARROW
-  32 = SPACE
-
-*/
 // import { Player } from "Player";
+
 
 var keyCode_ = "";
 var plr = new Player(300, 300, 100, 10, 'green');
 var gun1 = {
-  projType : "bullet",
-  projSpeed : 8,
-  fireMode : "single"
+	projType : "bullet",
+	projSpeed : 8,
+	fireMode : "auto"
 }
 var gun2 = {
-  projType : "laser",
-  projSpeed : 15,
-  fireMode : "auto"
+	projType : "laser",
+	projSpeed : 15,
+	fireMode : "single"
 }
 var gun = gun1;
 
 var projectiles = [];
 
-
+// ======================   SETUP
 function setup() {
-  createCanvas(600, 600);
-  textSize(20);
-
+	createCanvas(600, 600);
+	textSize(20);
+	var initialFrameCount = frameCount;
 }
-
+// ======================   DRAW
 function draw() {
-  background(0, 50, 100);
+	background(100, 100, 100);
 
-  plr.calcPos();
-  plr.redraw();
+	plr.calcPos();
+	plr.redraw();
 
-  for(let obj of projectiles){
-    obj.calcPos();
-    obj.redraw();
-  }
+	for(let obj of projectiles){
+		obj.calcPos();
+		obj.redraw();
+	}
 
-  debugInfo(plr);
+	if(mouseIsPressed){
+		if(frameCount - initialFrameCount > 5){
+			projectiles.push(new Projectile(plr, [mouseX, mouseY], gun));
+			initialFrameCount = frameCount;
+		}
+	}
+
+	debugInfo(plr);
 }
+// ======================   END-DRAW
 
 function keyPressed() {
-  if (keyCode === 49){
-    gun = gun1;
-  }
-  if (keyCode === 50){
-    gun = gun2;
-  }
+	if (keyCode === 49){
+		gun = gun1;
+	}
+	if (keyCode === 50){
+		gun = gun2;
+	}
 }
 
 function mousePressed() {
-  projectiles.push(new Projectile(plr, [mouseX, mouseY], gun));
+	initialFrameCount = frameCount;
+	projectiles.push(new Projectile(plr, [mouseX, mouseY], gun));
 }
 
 function debugInfo(plr_){
+	textSize(20);
+	stroke(0);
+	fill(255);
+	strokeWeight(1);
 
-  stroke(0);
-  fill(255);
-  strokeWeight(1);
+	line(plr_.xpos, plr_.ypos, mouseX, mouseY);
 
-  line(plr_.xpos, plr_.ypos, mouseX, mouseY);
+	text(keyCode_, 10, 100);
 
-  text(keyCode_, 100, 100);
-  if(projectiles.length){
-    text(Object.values(projectiles[projectiles.length-1].heading), 100, 50);
-  }
+	text(Object.values(gun)[0], 10, 70);
 
-  switch(keyCode_){
-    case 37:
-      text("LEFT_ARROW", 200, 100);
-      break;
-    case 38:
-      text("UP_ARROW", 200, 100);
-      break;
-    case 39:
-      text("RIGHT_ARROW", 200, 100);
-      break;
-    case 40:
-      text("DOWN_ARROW", 200, 100);
-      break;
-  }
+	if(projectiles.length){
+		text("last prctl. heading: " + Object.values(projectiles[projectiles.length-1].heading), 10, 45a);
+	}
 
-  text(plr_.xpos, 100, 130);
-  text(plr_.ypos, 150, 130);
+	switch(keyCode_){
+		case 37:
+			text("LEFT_ARROW", 200, 100);
+			break;
+		case 38:
+			text("UP_ARROW", 200, 100);
+			break;
+		case 39:
+			text("RIGHT_ARROW", 200, 100);
+			break;
+		case 40:
+			text("DOWN_ARROW", 200, 100);
+			break;
+	}
+
+	text("plr pos: " + plr_.xpos  + ", " + plr_.ypos, 10, 20);
+
+	textSize(15);
+	text("WASD - move; 1,2 - guns", 10, 590);
 }
