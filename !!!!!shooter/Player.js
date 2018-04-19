@@ -12,25 +12,23 @@ function Player(initX, initY, hp_, ammo_, color_){
 		stroke(0);
 		ellipse(this.xpos, this.ypos, 25, 25);
 
-		line(this.xpos, this.ypos, mouseX, mouseY);
-
 	}
 
 
 	this.calcPos = function(){
-		if (keyIsDown(LEFT_ARROW)) {
+		if (keyIsDown(65)) {
 			this.xpos -= 2;
 		}
 
-		if (keyIsDown(RIGHT_ARROW)) {
+		if (keyIsDown(68)) {
 			this.xpos += 2;
 		}
 
-		if (keyIsDown(UP_ARROW)) {
+		if (keyIsDown(87)) {
 			this.ypos -= 2;
 		}
 
-		if (keyIsDown(DOWN_ARROW)) {
+		if (keyIsDown(83)) {
 			this.ypos += 2;
 		}
 

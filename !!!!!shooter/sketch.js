@@ -10,39 +10,67 @@
 // import { Player } from "Player";
 
 var keyCode_ = "";
-
 var plr = new Player(300, 300, 100, 10, 'green');
+var gun1 = {
+  projType : "bullet",
+  projSpeed : 8,
+  fireMode : "single"
+}
+var gun2 = {
+  projType : "laser",
+  projSpeed : 15,
+  fireMode : "auto"
+}
+var gun = gun1;
+
+var projectiles = [];
+
 
 function setup() {
   createCanvas(600, 600);
   textSize(20);
 
-
 }
 
 function draw() {
-  background(0, 255, 100);
-  fill(255);
-
-  debugInfo(plr);
+  background(0, 50, 100);
 
   plr.calcPos();
   plr.redraw();
 
+  for(let obj of projectiles){
+    obj.calcPos();
+    obj.redraw();
+  }
+
+  debugInfo(plr);
 }
 
 function keyPressed() {
-  if (keyCode === LEFT_ARROW) {
-    value = 255;
-  } else if (keyCode === RIGHT_ARROW) {
-    value = 0;
+  if (keyCode === 49){
+    gun = gun1;
   }
-  keyCode_ = keyCode;
+  if (keyCode === 50){
+    gun = gun2;
+  }
+}
+
+function mousePressed() {
+  projectiles.push(new Projectile(plr, [mouseX, mouseY], gun));
 }
 
 function debugInfo(plr_){
 
+  stroke(0);
+  fill(255);
+  strokeWeight(1);
+
+  line(plr_.xpos, plr_.ypos, mouseX, mouseY);
+
   text(keyCode_, 100, 100);
+  if(projectiles.length){
+    text(Object.values(projectiles[projectiles.length-1].heading), 100, 50);
+  }
 
   switch(keyCode_){
     case 37:
@@ -61,5 +89,4 @@ function debugInfo(plr_){
 
   text(plr_.xpos, 100, 130);
   text(plr_.ypos, 150, 130);
-
 }
