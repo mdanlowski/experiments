@@ -1,3 +1,5 @@
+// Blueprint for a projectile object
+
 function Projectile(origin_, heading_, weapon_){
 	this.birthFrameCount = frameCount;
 	this.xpos = origin_.xpos;
@@ -8,15 +10,10 @@ function Projectile(origin_, heading_, weapon_){
 	}
 	this.vel = weapon_.projSpeed;
 	
-	// var headingMag = (hx, hy) => Math.sqrt(hx**2 + hy**2);
-	var headingMag = function(h = this.heading){ 
-		return Math.sqrt(h.x**2 + h.y**2); // UNDEF?!?!?
-  };
-
 	this.calcPos = function() {
 		// let headingMag = Math.sqrt(this.heading.x, this.heading.y);
-		this.xpos += (1/headingMag()) * this.vel * this.heading.x;
-		this.ypos += (1/headingMag()) * this.vel * this.heading.y;
+		this.xpos += (1/headingMag(this.heading)) * this.vel * this.heading.x;
+		this.ypos += (1/headingMag(this.heading)) * this.vel * this.heading.y;
 
 	}
 
@@ -32,8 +29,8 @@ function Projectile(origin_, heading_, weapon_){
 				strokeWeight(3);
 				stroke('cyan');
 					// let laserLineX = this.xpos + (1/headingMag(this.heading.x, this.heading.y))*150*this.heading.x;
-					let laserLineX = this.xpos + (1/headingMag()) * 150 * this.heading.x;
-					let laserLineY = this.ypos + (1/headingMag()) * 150 * this.heading.y;
+					let laserLineX = this.xpos + (1/headingMag(this.heading)) * 150 * this.heading.x;
+					let laserLineY = this.ypos + (1/headingMag(this.heading)) * 150 * this.heading.y;
 				line(this.xpos, this.ypos, laserLineX, laserLineY );
 				break;
 
@@ -48,3 +45,8 @@ function Projectile(origin_, heading_, weapon_){
 		
 	}
 }
+// ============ some mechanics maths ===========
+// var headingMag = (hx, hy) => Math.sqrt(hx**2 + hy**2);
+function headingMag(ph){ 
+	return Math.sqrt( ph.x**2 + ph.y**2 ); // UNDEF?!?!?
+};
