@@ -13,7 +13,6 @@ var commandKey;						// key used to open commands menu
 
 
 
-
 /*
 	UNIT COMBAT CLASSES
 */

@@ -31,7 +31,7 @@ var gobjects = [];
 function draw() {
 	// Render background
 	background(200, 0, 100);
-
+	
 	if(mouseIsPressed && mouseButton === LEFT){
 		rectSelect(selectInitX, selectInitY);
 	}
@@ -52,9 +52,9 @@ function mousePressed() {
 	g = Math.round(random(255));
 	b = Math.round(random(255));
 
-	// if(mouseButton === RIGHT) {
-		if(mouseButton === CENTER) {
-			let temp = new GameObject(mouseX, mouseY, 10, 0, 'rgb('+r+','+g+','+b+')');
+	if(mouseButton === RIGHT) {
+	// if(mouseButton === CENTER) {
+		let temp = new GameObject(mouseX, mouseY, 10, 0, 'rgb('+r+','+g+','+b+')');
 		// console.log(temp.clr);
 		gobjects.push(temp);
 	}
@@ -64,11 +64,11 @@ function mouseReleased() {
 	selectionOn = false;
 }
 
-function mouseDragged() {
-	ellipse(mouseX, mouseY, 5, 5);
-  // prevent default
-  return false;
-}
+// function mouseDragged() {
+// 	ellipse(mouseX, mouseY, 5, 5);
+//   // prevent default
+//   return false;
+// }
 
 function keyPressed() {
 	//keyCode
