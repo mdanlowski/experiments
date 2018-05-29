@@ -24,13 +24,14 @@ function GameObject(initX, initY, hp_, ammo_, color_){
 		if ( selectionOn && (this.xpos > selectInitX && this.xpos < mouseX) && (this.ypos > selectInitY && this.ypos < mouseY) ) {
 				this.isSelected = true;
 		}
-		if ( selectionOn && !((this.xpos > selectInitX && this.xpos < mouseX) && (this.ypos > selectInitY && this.ypos < mouseY)) ){
+		if ( selectionOn && !( (this.xpos > selectInitX && this.xpos < mouseX) && (this.ypos > selectInitY && this.ypos < mouseY) ) ){
 				this.isSelected = false;
 		}
 
 		if ( selectionOn && (this.xpos < selectInitX && this.xpos > mouseX) && (this.ypos < selectInitY && this.ypos > mouseY) ) {
 				this.isSelected = true;
 		}
+		// ============================= test
 
 		if(this.isSelected){
 			stroke('lime');
