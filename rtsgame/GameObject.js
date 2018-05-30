@@ -13,7 +13,7 @@ function GameObject(initX, initY, hp_, ammo_, color_){
 		//check selection area
 		/**********************************************************
 		*	TODO
-		*	+ make select work when mouse moves from + to -
+		*	++ make select work IN ALL DIRECTIONS
 		*	- export selection checking code to external file
 		*			for example: projectiles won't be selectable, as autonomic vehicles/drones
 		*	- limit properties to basic data common for all "physical" objects
@@ -31,6 +31,14 @@ function GameObject(initX, initY, hp_, ammo_, color_){
 		if ( selectionOn && (this.xpos < selectInitX && this.xpos > mouseX) && (this.ypos < selectInitY && this.ypos > mouseY) ) {
 				this.isSelected = true;
 		}
+
+		if ( selectionOn && (this.xpos > selectInitX && this.xpos < mouseX) && (this.ypos < selectInitY && this.ypos > mouseY) ) {
+				this.isSelected = true;
+		}
+		if ( selectionOn && (this.xpos < selectInitX && this.xpos > mouseX) && (this.ypos > selectInitY && this.ypos < mouseY) ) {
+				this.isSelected = true;
+		}
+
 		// ============================= test
 
 		if(this.isSelected){
