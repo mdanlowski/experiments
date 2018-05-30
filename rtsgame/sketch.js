@@ -52,8 +52,8 @@ function mousePressed() {
 	g = Math.round(random(255));
 	b = Math.round(random(255));
 
-	// if(mouseButton === RIGHT) {
-		if(mouseButton === CENTER) {
+	if(mouseButton === RIGHT) {
+		// if(mouseButton === CENTER) {
 			let temp = new GameObject(mouseX, mouseY, 10, 0, 'rgb('+r+','+g+','+b+')');
 		// console.log(temp.clr);
 		gobjects.push(temp);
