@@ -14,32 +14,14 @@ function GameObject(initX, initY, hp_, ammo_, color_){
 		/**********************************************************
 		*	TODO
 		*	++ make select work IN ALL DIRECTIONS
-		*	- export selection checking code to external file
+		*	+ export selection checking code to external file
 		*			for example: projectiles won't be selectable, as autonomic vehicles/drones
 		*	- limit properties to basic data common for all "physical" objects
 		*	- develop an object hierarchy
 		*	- 
 		************************************************************/
-		
-		if ( selectionOn && (this.xpos > selectInitX && this.xpos < mouseX) && (this.ypos > selectInitY && this.ypos < mouseY) ) {
-				this.isSelected = true;
-		}
-		if ( selectionOn && !( (this.xpos > selectInitX && this.xpos < mouseX) && (this.ypos > selectInitY && this.ypos < mouseY) ) ){
-				this.isSelected = false;
-		}
 
-		if ( selectionOn && (this.xpos < selectInitX && this.xpos > mouseX) && (this.ypos < selectInitY && this.ypos > mouseY) ) {
-				this.isSelected = true;
-		}
-
-		if ( selectionOn && (this.xpos > selectInitX && this.xpos < mouseX) && (this.ypos < selectInitY && this.ypos > mouseY) ) {
-				this.isSelected = true;
-		}
-		if ( selectionOn && (this.xpos < selectInitX && this.xpos > mouseX) && (this.ypos > selectInitY && this.ypos < mouseY) ) {
-				this.isSelected = true;
-		}
-
-		// ============================= test
+		checkSelection( this );
 
 		if(this.isSelected){
 			stroke('lime');

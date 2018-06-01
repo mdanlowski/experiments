@@ -10,8 +10,29 @@ var selectionOn = false;			// triggered true when selection takes place
 */
 var selectionKey;					// key used for drawing selection area
 var commandKey;						// key used to open commands menu
+/*
+	GLOBAL UTILITIES
+*/
+function checkSelection( obj ){
+	if ( selectionOn && (obj.xpos > selectInitX && obj.xpos < mouseX) && (obj.ypos > selectInitY && obj.ypos < mouseY) ) {
+			obj.isSelected = true;
+	}
 
+	if ( selectionOn && (obj.xpos < selectInitX && obj.xpos > mouseX) && (obj.ypos < selectInitY && obj.ypos > mouseY) ) {
+			obj.isSelected = true;
+	}
 
+	if ( selectionOn && (obj.xpos > selectInitX && obj.xpos < mouseX) && (obj.ypos < selectInitY && obj.ypos > mouseY) ) {
+			obj.isSelected = true;
+	}
+	if ( selectionOn && (obj.xpos < selectInitX && obj.xpos > mouseX) && (obj.ypos > selectInitY && obj.ypos < mouseY) ) {
+			obj.isSelected = true;
+	}
+	// deselect all if none in area
+	if ( selectionOn && !( (obj.xpos > selectInitX && obj.xpos < mouseX) && (obj.ypos > selectInitY && obj.ypos < mouseY) ) ){
+			obj.isSelected = false;
+	}
+}
 
 /*
 	UNIT COMBAT CLASSES

@@ -30,7 +30,7 @@ var gobjects = [];
 // ============================================   DRAW
 function draw() {
 	// Render background
-	background(200, 0, 100);
+	background(80, 50, 100);
 	
 	if(mouseIsPressed && mouseButton === LEFT){
 		rectSelect(selectInitX, selectInitY);
