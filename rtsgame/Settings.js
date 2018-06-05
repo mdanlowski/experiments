@@ -17,7 +17,10 @@ function checkSelection( obj ){
 	if ( selectionOn && (obj.xpos > selectInitX && obj.xpos < mouseX) && (obj.ypos > selectInitY && obj.ypos < mouseY) ) {
 			obj.isSelected = true;
 	}
-
+	// deselect all if none in area
+	if ( selectionOn && !( (obj.xpos > selectInitX && obj.xpos < mouseX) && (obj.ypos > selectInitY && obj.ypos < mouseY) ) ){
+			obj.isSelected = false;
+	}
 	if ( selectionOn && (obj.xpos < selectInitX && obj.xpos > mouseX) && (obj.ypos < selectInitY && obj.ypos > mouseY) ) {
 			obj.isSelected = true;
 	}
@@ -28,10 +31,7 @@ function checkSelection( obj ){
 	if ( selectionOn && (obj.xpos < selectInitX && obj.xpos > mouseX) && (obj.ypos > selectInitY && obj.ypos < mouseY) ) {
 			obj.isSelected = true;
 	}
-	// deselect all if none in area
-	if ( selectionOn && !( (obj.xpos > selectInitX && obj.xpos < mouseX) && (obj.ypos > selectInitY && obj.ypos < mouseY) ) ){
-			obj.isSelected = false;
-	}
+
 }
 
 /*

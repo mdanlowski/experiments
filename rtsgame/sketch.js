@@ -19,6 +19,7 @@ function setup() {
 	createCanvas(600, 600);
 	textSize(15);
 	var initialFrameCount = frameCount;
+	frameRate = 
 }
 // ============================================   END-SETUP
 
