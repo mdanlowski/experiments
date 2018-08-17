@@ -13,7 +13,8 @@ var commandKey;						// key used to open commands menu
 /*
 	GLOBAL UTILITIES
 */
-function checkSelection( obj ){
+var GlobUtils = {
+	checkSelection : function( obj ){
 	if ( selectionOn && (obj.xpos > selectInitX && obj.xpos < mouseX) && (obj.ypos > selectInitY && obj.ypos < mouseY) ) {
 			obj.isSelected = true;
 	}
@@ -33,6 +34,8 @@ function checkSelection( obj ){
 	}
 
 }
+}
+
 
 /*
 	UNIT COMBAT CLASSES

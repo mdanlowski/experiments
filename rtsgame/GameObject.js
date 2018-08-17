@@ -18,10 +18,10 @@ function GameObject(initX, initY, hp_, ammo_, color_){
 		*			for example: projectiles won't be selectable, as autonomic vehicles/drones
 		*	- limit properties to basic data common for all "physical" objects
 		*	- develop an object hierarchy
-		*	- 
+		*	- change redraw() name
 		************************************************************/
 
-		checkSelection( this );
+		GlobUtils.checkSelection( this );
 
 		if(this.isSelected){
 			stroke('lime');
