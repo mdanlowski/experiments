@@ -1,7 +1,7 @@
 # experiments
 codebits and acts of random creativity
 
-## spotify open add skipper ->
+## spotify open add skipper -> :x: (failing)
 1. download ViolentMonkey Chrome plugin
 2. click on the plugin icon and Open Dashboard
 3. create new script
