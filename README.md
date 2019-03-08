@@ -2,7 +2,7 @@
 codebits and acts of random creativity
 
 ## spotify open add skipper -> :x: (failing)
-`spotifyAddSkipper.js`
+`spOpenAddSkipper.js`
 
 1. download ViolentMonkey Chrome plugin
 2. click on the plugin icon and Open Dashboard
