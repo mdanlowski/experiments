@@ -14,6 +14,6 @@ codebits and acts of random creativity
 ## python json values translator
 `translate_source.py`
 
-a program devised at work to look for / : 'Abcd(...)' / through many files and produce files with these matches substituted with their translations. Translations source is a CSV file.
+a program devised at work to look for `: 'Abcd(...)'` through many files and produce files with these matches substituted with their translations. Translations source is a CSV file.
 - [ ] Planning to generalize this utility and
 - [ ] equip it with arguments parser
