@@ -1,8 +1,10 @@
 // ==UserScript==
-// @name spotify-ad-skip
-// @namespace Violentmonkey Scripts
-// @match https://open.spotify.com/*
-// @grant none
+// @name         Spotify Add Skipper
+// @namespace    http://spotify.com/
+// @version      0.1
+// @description  skip adds
+// @author       mdanlowski
+// @match        https://*spotify.com/*
 // ==/UserScript==
 try {
   skipper();
@@ -23,23 +25,23 @@ catch(ReferenceError){
 
 function skipper(){
   setTimeout(function(){
-          var tracks = document.querySelectorAll(".tracklist-play-pause.tracklist-top-align");
-          console.log(tracks);
-          var trlen = tracks.length
-          tracks[Math.round(trlen*Math.random())].click()
+    var tracks = document.querySelectorAll(".tracklist-play-pause.tracklist-top-align");
+    console.log(tracks);
+    var trlen = tracks.length
+    tracks[Math.round(trlen*Math.random())].click()
 
-          var trackTime = document.getElementsByClassName("playback-bar__progress-time")[1];
-          trackTime.addEventListener("DOMCharacterDataModified", function (event) {
-              var time = trackTime.innerText;
-              time = time.replace(':','.');
-              time = parseFloat(time);
-              if ( time <= 0.3 ){
-                  location.reload();
-              }
+    var trackTime = document.getElementsByClassName("playback-bar__progress-time")[1];
+    trackTime.addEventListener("DOMCharacterDataModified", function (event) {
+      var time = trackTime.innerText;
+      time = time.replace(':','.');
+      time = parseFloat(time);
+      if ( time <= 0.3 ){
+          location.reload();
+      }
 
-              tracks[Math.round(trlen*Math.random())].click();
+      tracks[Math.round(trlen*Math.random())].click();
 
-              }, false);
+      }, false);
 
-      }, 1000);
+  }, 1000);
 }
