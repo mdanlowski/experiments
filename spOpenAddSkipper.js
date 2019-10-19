@@ -15,8 +15,8 @@ try {
 }
 catch(TypeError){
   document.addEventListener('DOMContentLoaded', function(){
-    skipper();
     document.querySelector(".PlaylistRecommendedTracks").remove();
+    skipper();
   });  
 }
 try {
@@ -45,6 +45,7 @@ function skipper(){
       trackPlayIconElements[Math.round(tracksSetLength*Math.random())].parentElement.click();
 
       }, false);
+      document.querySelector(".PlaylistRecommendedTracks").remove();
 
   }, 1000);
 }
