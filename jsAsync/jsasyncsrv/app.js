@@ -17,14 +17,14 @@ app.use(function(req, res, next) {
 });
 
 app.get('/data', (req, res) => {
-    console.log("GET /data", '| referrer: ' + req['rawHeaders'][1])
+    console.log(new Date().toISOString() + " | GET /data", '| referrer: ' + req['rawHeaders'][1])
     res.json(mockData.getData)
   }
 );
 
 app.get('/profile/:isAuth', (req, res) => {
     let mockLogin = req.params.isAuth == 'true' ? true : false;
-    console.log("GET /profile", '| referrer: ' + req['rawHeaders'][1])
+    console.log(new Date().toISOString() + " | GET /profile", '| referrer: ' + req['rawHeaders'][1])
     res.json({
       ...mockData.profile,
       isAuthenticated: mockLogin
@@ -34,7 +34,7 @@ app.get('/profile/:isAuth', (req, res) => {
 
 app.get('/data-wait', (req, res) => {
   setTimeout(() => {
-      console.log("GET /profile - simulate long async", '| referrer: ' + req['rawHeaders'][1])
+      console.log(new Date().toISOString() + " | GET /profile - simulate long async", '| referrer: ' + req['rawHeaders'][1])
       res.json(mockData.getData)
     }, 1500);
   }
@@ -43,7 +43,7 @@ app.get('/data-wait', (req, res) => {
 app.get('/profile-wait/:isAuth', (req, res) => {
   setTimeout(() => {
     let mockLogin = req.params.isAuth == 'true' ? true : false;
-    console.log("GET /profile - simulate long async", '| referrer: ' + req['rawHeaders'][1])
+    console.log(new Date().toISOString() + " | GET /profile - simulate long async", '| referrer: ' + req['rawHeaders'][1])
     res.json({
         ...mockData.profile,
         isAuthenticated: mockLogin
