@@ -13,6 +13,10 @@ codebits and acts of random creativity
 6. save and enjoy
 
 
+## Experimenting to ensure that backend data is ready before rendering vue components
+`./jsAsync`
+
+
 ## python json values translator
 `translate_source.py`
 

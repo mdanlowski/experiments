@@ -1,3 +1,5 @@
 __pycache__
 
 pyexp/virtualenvs
+
+*node_modules*
