@@ -1,5 +1,5 @@
 [
-  { "name": "Castelgandolfo", "capacity": 4, "floor": "0B", "color": "#42F514", "amenities": ["TV", "Projector", "Flipchart"] },
-  { "name": "Andrzej", "capacity": 12, "floor": "0B", "color": "#00FF90", "amenities": ["TV", "Flipchart", "Interactive Board"] },
-  { "name": "Pierre", "capacity": 1, "floor": "2", "color": "#F14102", "amenities": ["Precision Scale", "Lab Furnace"] }
+  { "id": 1, "name": "Castelgandolfo", "capacity": 4, "floor": "0B", "color": "#42F514", "amenities": ["TV", "Projector", "Flipchart"] },
+  { "id": 2, "name": "Andrzej", "capacity": 12, "floor": "0B", "color": "#00FF90", "amenities": ["TV", "Flipchart", "Interactive Board"] },
+  { "id": 3, "name": "Pierre", "capacity": 1, "floor": "2", "color": "#F14102", "amenities": ["Precision Scale", "Lab Furnace"] }
 ]
