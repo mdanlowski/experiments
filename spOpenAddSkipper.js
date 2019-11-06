@@ -31,7 +31,7 @@ function skipper(){
     var trackPlayIconElements = document.querySelectorAll("svg.icon-play");
     console.log(trackPlayIconElements);
     var tracksSetLength = trackPlayIconElements.length
-    trackPlayIconElements[Math.round(tracksSetLength*Math.random())].click()
+    trackPlayIconElements[Math.round(tracksSetLength*Math.random())].parentElement.click()
 
     var trackTime = document.getElementsByClassName("playback-bar__progress-time")[1];
     trackTime.addEventListener("DOMCharacterDataModified", function (event) {
